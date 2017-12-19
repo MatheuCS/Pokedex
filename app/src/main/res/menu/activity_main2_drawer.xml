@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_itens"
+            android:icon="@drawable/ic_menu_itens"
+            android:title="Itens" />
+        <item
+            android:id="@+id/nav_pokemons"
+            android:icon="@drawable/ic_menu_pokemons"
+            android:title="Pokemons" />
+    </group>
+
+</menu>
