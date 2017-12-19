@@ -20,9 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".DetailPokemonActivity"
-            android:label="Pokemon details" />
+            android:label="Pokemon details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivityPokemons" />
+        </activity>
+
         <activity
             android:name=".MainActivityPokemons"
             android:label="Pokedex"

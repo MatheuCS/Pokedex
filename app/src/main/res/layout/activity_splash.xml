@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pokemon_background"
-    tools:context="com.matheuscosta.pokedexfinal.Splash">
+    android:gravity="center"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:background="@drawable/splash_background"
+    tools:context="com.matheuscosta.pokedexfinal.Splash"
+    >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Pokedex"
-        android:textColor="#fff"
-        android:textSize="60dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="189dp" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/logo_pokemon" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/pokedex" />
+
+</LinearLayout>

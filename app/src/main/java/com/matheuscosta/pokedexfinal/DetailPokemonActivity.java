@@ -33,6 +33,8 @@ public class DetailPokemonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_pokemon);
 
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
         tvName = (TextView) findViewById(R.id.tv_detail_name);
         tvTypes = (TextView) findViewById(R.id.tv_detail_types);
         tvWeight = (TextView) findViewById(R.id.tv_detail_weight);
