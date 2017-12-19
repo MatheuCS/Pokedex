@@ -128,7 +128,7 @@ public class DetailPokemonActivity extends AppCompatActivity {
     }
 
     public void erro (){
-        Toast.makeText(this, "Houve algum erro ao solocitar os dados! Verifique sua conexão e tente novamente ",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "There was an error trying to download the data! Check your connection and try again.", Toast.LENGTH_LONG).show();
     }
 
 }

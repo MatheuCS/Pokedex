@@ -150,7 +150,7 @@ public class MainActivityItens extends AppCompatActivity implements NavigationVi
     }
 
     public void erro (){
-        Toast.makeText(this, "Houve algum erro ao solocitar os dados! Verifique sua conexão e tente novamente ",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "There was an error trying to download the data! Check your connection and try again.", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -176,10 +176,7 @@ public class MainActivityItens extends AppCompatActivity implements NavigationVi
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_itens) {
-            startActivity(new Intent(MainActivityItens.this, MainActivityItens.class));
-            finish();
-        } else if (id == R.id.nav_pokemons) {
+        if (id == R.id.nav_pokemons) {
             startActivity(new Intent(MainActivityItens.this, MainActivityPokemons.class));
             finish();
         }

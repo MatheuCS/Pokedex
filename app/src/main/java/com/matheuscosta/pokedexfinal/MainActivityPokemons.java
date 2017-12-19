@@ -1,7 +1,10 @@
 package com.matheuscosta.pokedexfinal;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -113,6 +116,9 @@ public class MainActivityPokemons extends AppCompatActivity implements Navigatio
         prontoParaCarregar = true;
         offset = 0;
 
+
+        //Log.d(LOG_TAG, "Activity Label: " + label);
+
         obterDados(offset);
 
     }
@@ -159,7 +165,7 @@ public class MainActivityPokemons extends AppCompatActivity implements Navigatio
     }
 
     public void erro (){
-        Toast.makeText(this, "Houve algum erro ao solocitar os dados! Verifique sua conexão e tente novamente ",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "There was an error trying to download the data! Check your connection and try again.", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -184,16 +190,13 @@ public class MainActivityPokemons extends AppCompatActivity implements Navigatio
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         if (id == R.id.nav_itens) {
             startActivity(new Intent(MainActivityPokemons.this, MainActivityItens.class));
             finish();
-        } else if (id == R.id.nav_pokemons) {
-            startActivity(new Intent(MainActivityPokemons.this, MainActivityPokemons.class));
-            finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
