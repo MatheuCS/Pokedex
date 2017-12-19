@@ -1,11 +1,6 @@
 package com.matheuscosta.pokedexfinal.pokeapi;
 
 import com.google.gson.annotations.SerializedName;
-import com.matheuscosta.pokedexfinal.PokeAbilities;
-import com.matheuscosta.pokedexfinal.PokeMoves;
-import com.matheuscosta.pokedexfinal.Sprites;
-import com.matheuscosta.pokedexfinal.PokeStats;
-import com.matheuscosta.pokedexfinal.PokeTypeSlots;
 
 import java.util.ArrayList;
 import java.util.List;

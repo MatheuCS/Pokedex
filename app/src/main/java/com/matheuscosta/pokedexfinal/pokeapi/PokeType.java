@@ -1,7 +1,6 @@
 package com.matheuscosta.pokedexfinal.pokeapi;
 
 import com.google.gson.annotations.SerializedName;
-import com.matheuscosta.pokedexfinal.PokeTypeSlots;
 
 import java.util.ArrayList;
 import java.util.List;

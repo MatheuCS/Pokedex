@@ -1,4 +1,4 @@
-package com.matheuscosta.pokedexfinal;
+package com.matheuscosta.pokedexfinal.pokeapi;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Matheus Costa on 19/12/2017.
  */
 
-public class Move {
+public class Ability {
 
     @SerializedName("name")
     private String name;

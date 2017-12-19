@@ -1,7 +1,6 @@
-package com.matheuscosta.pokedexfinal;
+package com.matheuscosta.pokedexfinal.pokeapi;
 
 import com.google.gson.annotations.SerializedName;
-import com.matheuscosta.pokedexfinal.Move;
 
 /**
  * Created by Matheus Costa on 19/12/2017.

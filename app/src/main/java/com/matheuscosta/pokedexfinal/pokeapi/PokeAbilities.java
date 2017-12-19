@@ -1,4 +1,4 @@
-package com.matheuscosta.pokedexfinal;
+package com.matheuscosta.pokedexfinal.pokeapi;
 
 import com.google.gson.annotations.SerializedName;
 

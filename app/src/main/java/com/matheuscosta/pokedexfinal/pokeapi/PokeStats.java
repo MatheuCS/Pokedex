@@ -1,4 +1,4 @@
-package com.matheuscosta.pokedexfinal;
+package com.matheuscosta.pokedexfinal.pokeapi;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -33,11 +33,11 @@ public class PokeStats {
         this.base_stat = base_stat;
     }
 
-    public com.matheuscosta.pokedexfinal.Stat getStat() {
+    public com.matheuscosta.pokedexfinal.pokeapi.Stat getStat() {
         return Stat;
     }
 
-    public void setStat(com.matheuscosta.pokedexfinal.Stat stat) {
+    public void setStat(com.matheuscosta.pokedexfinal.pokeapi.Stat stat) {
         Stat = stat;
     }
 }

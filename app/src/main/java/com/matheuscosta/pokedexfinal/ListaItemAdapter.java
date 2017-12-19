@@ -10,40 +10,41 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.matheuscosta.pokedexfinal.pokeapi.Item;
 import com.matheuscosta.pokedexfinal.pokeapi.Pokemon;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Matheus Costa on 18/12/2017.
+ * Created by Matheus Costa on 19/12/2017.
  */
 
-public class ListaPokemonAdapter extends RecyclerView.Adapter<ListaPokemonAdapter.ViewHolder> {
+class ListaItemAdapter extends RecyclerView.Adapter<ListaItemAdapter.ViewHolder> {
 
-    public static List<Pokemon> dataset;
+    public static List<Item> dataset;
     private Context context;
 
-    public ListaPokemonAdapter(Context context) {
+    public ListaItemAdapter(Context context) {
         this.context = context;
         dataset = new ArrayList<>();
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_pokemon_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_item_row, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Pokemon pokemon = dataset.get(position);
-        holder.tv_name.setText(pokemon.getName());
-        Glide.with(context).load("http://pokeapi.co/media/sprites/pokemon/" + pokemon.getNumber() +  ".png")
-        .centerCrop()
-        .crossFade()
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .into(holder.iv_imagePokemon);
+        Item item = dataset.get(position);
+        holder.tv_name.setText(item.getName());
+        Glide.with(context).load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/" + item.getName() +  ".png")
+                .centerCrop()
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.iv_imageItem);
     }
 
     @Override
@@ -51,21 +52,20 @@ public class ListaPokemonAdapter extends RecyclerView.Adapter<ListaPokemonAdapte
         return dataset.size();
     }
 
-    public void adicionarListaPokemon(ArrayList<Pokemon> listaPokemon) {
-        dataset.addAll(listaPokemon);
+    public void adicionarListaItem(ArrayList<Item> listaItem) {
+        dataset.addAll(listaItem);
         notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView iv_imagePokemon;
+        private ImageView iv_imageItem;
         private TextView tv_name;
 
         public ViewHolder(View itemView){
             super(itemView);
 
-            iv_imagePokemon = (ImageView) itemView.findViewById(R.id.iv_imagePokemon);
+            iv_imageItem = (ImageView) itemView.findViewById(R.id.iv_imageItem);
             tv_name = (TextView) itemView.findViewById(R.id.tv_name);
         }
     }
-
 }

@@ -1,10 +1,12 @@
 package com.matheuscosta.pokedexfinal;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -17,17 +19,19 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailPokemonActivity extends AppCompatActivity {
 
     private TextView tvName, tvTypes, tvWeight, tvHeight, tvAbilities,tvHp, tvAttack, tcDefense, tvSpeed, tvSpecialAttack, tvSpecialDefense, tvMoves;
     private ImageView ivPokemon;
 
     private Retrofit retrofit;
 
+    private ProgressDialog progress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_detail_pokemon);
 
         tvName = (TextView) findViewById(R.id.tv_detail_name);
         tvTypes = (TextView) findViewById(R.id.tv_detail_types);
@@ -46,8 +50,6 @@ public class DetailActivity extends AppCompatActivity {
 
         int id = getIntent().getIntExtra("ID", 1);
 
-        //System.out.println("TESTE: " + id);
-
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -55,12 +57,18 @@ public class DetailActivity extends AppCompatActivity {
 
         requestData(id);
 
-
     }
 
     private void requestData(final int id) {
         PokeApiService service = retrofit.create(PokeApiService.class);
         Call<Pokemon> pokemonRespostaCall = service.getPokemon(id);
+
+        progress = new ProgressDialog(DetailPokemonActivity.this);
+        progress.setMessage(getResources().getString(R.string.msg_progress));
+        progress.setCancelable(false);
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setIndeterminate(true);
+        progress.show();
 
         pokemonRespostaCall.enqueue(new Callback<Pokemon>() {
             @Override
@@ -96,18 +104,31 @@ public class DetailActivity extends AppCompatActivity {
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(ivPokemon);
 
+                    progress.dismiss();
+                    progress.cancel();
+
 
                 } else {
-                    Log.e("POKEDEX", "onRespose: " + response.errorBody());
+                    Log.e("ERRO", "onRespose: " + response.errorBody());
+                    progress.dismiss();
+                    progress.cancel();
+                    erro();
                 }
             }
 
             @Override
             public void onFailure(Call<Pokemon> call, Throwable t) {
-                Log.e("POKEDEX", "onFailure: " + t.getMessage());
+                Log.e("ERRO", "onFailure: " + t.getMessage());
+                progress.dismiss();
+                progress.cancel();
+                erro();
             }
 
         });
+    }
+
+    public void erro (){
+        Toast.makeText(this, "Houve algum erro ao solocitar os dados! Verifique sua conexão e tente novamente ",Toast.LENGTH_LONG).show();
     }
 
 }

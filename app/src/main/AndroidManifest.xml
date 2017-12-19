@@ -20,17 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".DetailActivity" />
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
+            android:name=".DetailPokemonActivity"
+            android:label="Pokemon details" />
+        <activity
+            android:name=".MainActivityPokemons"
+            android:label="Pokedex"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivityItens"></activity>
+        <activity
+            android:name=".MainActivityItens"
+            android:label="@string/title_activity_main_itens"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

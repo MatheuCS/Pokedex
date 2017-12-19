@@ -7,7 +7,7 @@ android:paddingBottom="2dp"
 android:paddingLeft="2dp"
 android:paddingRight="2dp"
 android:paddingTop="2dp"
-tools:context="com.matheuscosta.pokedexfinal.DetailActivity">
+tools:context="com.matheuscosta.pokedexfinal.DetailPokemonActivity">
 
     <ImageView
         android:layout_width="128dp"
