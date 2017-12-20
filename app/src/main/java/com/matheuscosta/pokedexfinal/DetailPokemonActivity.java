@@ -33,8 +33,6 @@ public class DetailPokemonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_pokemon);
 
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
-
         tvName = (TextView) findViewById(R.id.tv_detail_name);
         tvTypes = (TextView) findViewById(R.id.tv_detail_types);
         tvWeight = (TextView) findViewById(R.id.tv_detail_weight);
@@ -82,23 +80,19 @@ public class DetailPokemonActivity extends AppCompatActivity {
                     String[] stats = pokemon.pokeStatesToString();
 
                     tvName.setText(pokemon.getName());
-                    tvTypes.setText("Type(s): " + pokemon.pokeTypesToString());
-                    tvWeight.setText("Weight: " + pokemon.getWeight());
-                    tvHeight.setText("Height: " + pokemon.getHeight());
-                    tvAbilities.setText("Abilities: " + pokemon.pokeAbilitiesToString());
+                    tvTypes.setText(pokemon.pokeTypesToString());
+                    tvWeight.setText(pokemon.getWeight());
+                    tvHeight.setText(pokemon.getHeight());
+                    tvAbilities.setText(pokemon.pokeAbilitiesToString());
 
-                    //{speed, special-defense, special-attack, defense, attack, hp}
+                    tvHp.setText(stats[5]);
+                    tvAttack.setText(stats[4]);
+                    tcDefense.setText(stats[3]);
+                    tvSpeed.setText(stats[0]);
+                    tvSpecialAttack.setText( stats[2]);
+                    tvSpecialDefense.setText(stats[1]);
 
-                    tvHp.setText("HP: " + stats[5]);
-                    tvAttack.setText("Attack: " + stats[4]);
-                    tcDefense.setText("Defense: " + stats[3]);
-                    tvSpeed.setText("Speed: " + stats[0]);
-                    tvSpecialAttack.setText("Special Attack: " + stats[2]);
-                    tvSpecialDefense.setText("Special Defense: " + stats[1]);
-
-                    tvMoves.setText("Moves: " + pokemon.pokeMovesToString());
-
-                    //System.out.println("TESTE: " + pokemon.getSprites().getFront_default());
+                    tvMoves.setText(pokemon.pokeMovesToString());
 
                     Glide.with(ivPokemon.getContext()).load(pokemon.getSprites().getFront_default())
                             .centerCrop()
@@ -108,7 +102,6 @@ public class DetailPokemonActivity extends AppCompatActivity {
 
                     progress.dismiss();
                     progress.cancel();
-
 
                 } else {
                     Log.e("ERRO", "onRespose: " + response.errorBody());

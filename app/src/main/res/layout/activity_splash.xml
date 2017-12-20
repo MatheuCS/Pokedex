@@ -8,20 +8,20 @@
     android:gravity="center"
     android:layout_weight="1"
     android:orientation="vertical"
-    android:background="@drawable/splash_background"
+    android:background="@drawable/pokemon_background"
     tools:context="com.matheuscosta.pokedexfinal.Splash"
     >
+
+    <!-- <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/pokedex" /> -->
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:srcCompat="@drawable/logo_pokemon" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/pokedex" />
 
 </LinearLayout>
